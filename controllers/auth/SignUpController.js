@@ -7,10 +7,6 @@ const signUpController = async (req, res, next) => {
     const { name, email, password } = req.body;
     // Checking whether an user with same email already exists or not
     const foundUser = await User.findOne({ email });
-    console.log(
-      "🚀 ~ file: SignUpController.js:10 ~ signUpController ~ foundUser:",
-      foundUser
-    );
     if (foundUser) {
       return res.status(409).json({
         status: false,

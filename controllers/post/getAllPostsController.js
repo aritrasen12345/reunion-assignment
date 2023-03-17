@@ -3,10 +3,6 @@ import Post from "../../models/Post.js";
 const getAllPostsController = async (req, res, next) => {
   try {
     const userId = req.userId;
-    console.log(
-      "🚀 ~ file: getAllPostsController.js:6 ~ getAllPostsController ~ userId:",
-      userId
-    );
     const foundPost = await Post.find({
       createdBy: userId,
     })
