@@ -12,7 +12,6 @@ import app from "./app.js";
 const DB = config.DB_URL.replace("<password>", config.DB_PASSWORD);
 
 // DB CONNECTION
-
 const options = {
   // autoIndex: false, // Don't build indexes
   maxPoolSize: 10, // Maintain up to 10 socket connections

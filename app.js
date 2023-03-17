@@ -16,7 +16,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 import testApis from "./apis/testApis.js";
-// import authApis from "./apis/authApis.js";
+import authApis from "./apis/authApis.js";
+import followApis from "./apis/followApis.js";
+import userApis from "./apis/userApis.js";
+import postApis from "./apis/postApis.js";
+import likeApis from "./apis/likeApis.js";
+import commentApis from "./apis/commentApis.js";
 
 //app  and middleware
 const app = express();
@@ -71,8 +76,13 @@ const limiter = rateLimit({
 
 app.use(limiter);
 
-app.use("/api/v1/test", testApis);
-// app.use("/api/v1/auth", authApis);
+app.use("/api/test", testApis);
+app.use("/api/user", userApis);
+app.use("/api/comment", commentApis);
+app.use("/api", postApis);
+app.use("/api", authApis);
+app.use("/api", followApis);
+app.use("/api", likeApis);
 
 // ERROR HANDLING MIDDLEWARE
 app.use(globalErrorHandler);
